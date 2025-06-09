@@ -48,6 +48,11 @@ public class leecode93_复原IP地址 {
             }
             // 截取数字
             String num = s.substring(startIndex, i);
+            // 超过三位数的数字不能作为ip的一部分，比如4位数字分为有前导0和没有前导0的情况
+            // 这两种情况都不满足条件
+            if (num.length() > 3) {
+                break;
+            }
             if (!isLegalNum(num)) {
                 continue;
             }
